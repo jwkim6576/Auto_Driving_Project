@@ -97,3 +97,12 @@
 * **Real-time Event Handling:** YOLO 기반의 객체 인식 결과가 ROS2 DDS 통신을 통해 지연 없이 처리되는 구조를 설계했습니다.
 * **Full-Stack Robotics:** 로봇 하드웨어 제어뿐만 아니라 웹 서버 및 DB 연동을 통해 사용자 친화적인 인터페이스를 개발하는 경험을 쌓았습니다.
 * **Nav2 Pipeline Mastery:** 다중 로봇(Multi-Robot) 환경에서의 Path Planning, SLAM, TF Tree 구조를 다루며 자율주행 시스템 아키텍처에 대한 깊이 있는 이해를 얻었습니다.
+
+<br>
+
+## 🎥 Demo Video
+
+https://youtu.be/pR47_wKZFh0
+
+https://youtu.be/S4AMfJaLJcg
+
