@@ -6,14 +6,13 @@
 
 ## 🗂️ Table of Contents
 
-### 1. [Project Overview](#-project-overview)
-### 2. [Operation Scenario](#-operation-scenario)
-### 3. [Team & Roles](#-team--roles)
-### 4. [Tech Stack](#-tech-stack)
-### 5. [System Architecture](#-system-architecture)
-### 6. [Demo Video](#-demo-video)
-### 7. [Key Achievements](#-key-achievements--learnings)
-
+### 1. [Project Overview](#project-overview)
+### 2. [Operation Scenario](#operation-scenario)
+### 3. [Team & Roles](#team--roles)
+### 4. [Tech Stack](#tech-stack)
+### 5. [System Architecture](#system-architecture)
+### 6. [Demo Video](#demo-video)
+### 7. [Key Achievements](#key-achievements--learnings)
 <br>
 
 ---
