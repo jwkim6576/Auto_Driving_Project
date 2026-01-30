@@ -1,113 +1,99 @@
+# 🚒 Fire Guard AMR (Autonomous Mobile Robot System)
 
-# SLAM기반 자율주행 로봇 시스템 프로젝트
-
-
-
-![Tumbnail](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbQkeUC%2FdJMcac9oqAb%2FAAAAAAAAAAAAAAAAAAAAAGGO_2E09WRzKeqCUIp-55cLPqtE03ThzkC4VpneS_7h%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1767193199%26allow_ip%3D%26allow_referer%3D%26signature%3DSUF11wBGESIpVgrwWdyRN4a2Nc0%253D)
+![Thumbnail](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbQkeUC%2FdJMcac9oqAb%2FAAAAAAAAAAAAAAAAAAAAAGGO_2E09WRzKeqCUIp-55cLPqtE03ThzkC4VpneS_7h%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1767193199%26allow_ip%3D%26allow_referer%3D%26signature%3DSUF11wBGESIpVgrwWdyRN4a2Nc0%253D)
 
 <br>
 
-## 🗂️ 목차
+## 🗂️ Table of Contents
 
-### 1. [프로젝트 개요](#-프로젝트-개요)
-
-### 2. [동작 시나리오](#-동작-시나리오)
-
-### 2. [팀 구성 및 역할](#-팀-구성-및-역할)
-
-### 3. [사용 기술](#-사용-기술)
-
-### 4. [System Architecture](#-System-Architecture)
-
-### 5. [시연 영상](#-시연-영상)
-
-### 6. [평가 및 피드백](#-평가-및-피드백)
+### 1. [Project Overview](#-project-overview)
+### 2. [Operation Scenario](#-operation-scenario)
+### 3. [Team & Roles](#-team--roles)
+### 4. [Tech Stack](#-tech-stack)
+### 5. [System Architecture](#-system-architecture)
+### 6. [Demo Video](#-demo-video)
+### 7. [Key Achievements](#-key-achievements--learnings)
 
 <br>
 
-## 📃 프로젝트 개요
+---
 
-### 화재 감지와 협동 로봇 (Fire Guard AMR)
-실시간 화재 감지 및 골든타임 초기 조치를 통한 안전성 및 효율성을 제공하는 로봇.   
-CCTV(webcam)를 통해 화재를 감지하고, 그 즉시 화재 대응 로봇(Robot A)이 해당 구역으로 출동,    
-다른 로봇(Robot B)는 건물 내부의 사람들을 발견하면 경고 안내를 진행 후 대피소로 안내 업무 수행.
+## 🔍 Project Overview
+**"Real-time Fire Detection & Golden Time Response System"**
 
+**Fire Guard AMR**은 화재 발생 시 골든타임을 확보하여 안전성과 효율성을 극대화하는 자율주행 로봇 시스템입니다.
+건물 내 CCTV(Webcam)가 화재를 실시간으로 감지하면, **화재 진압 로봇(Robot A)**이 해당 구역으로 즉시 출동하여 초기 진압을 시도하고, 동시에 **대피 안내 로봇(Robot B)**은 건물 내부를 순찰하며 사람을 인식해 안전한 대피소로 유도합니다.
 
-#### 📆 개발 기간 : 2025년 11월 24일 ~ 2025년 12월 05일
-
-<br>
-
-## 🎞️ 동작 시나리오
-
-1. WebCam을 통해 화재 발생 감지
-2. 모니터링 시스템에서 화재 경보 및 소방소 화재발생 신고
-3. 화재 진압 로봇 (로봇 A), 대피 안내 로봇 (로봇 B) 출동
-4. 모니터링 시스템에서 전달받은 구역으로 로봇 A 이동   
-    4-1. 해당 구역으로 이동 후 화재 감지   
-    4-2. 화재 감지 후 화재 진압 진행
-5. 건물 내 지정된 구역으로 대피 안내 로봇 (로봇 B) 출동   
-    5-1. 구역 순찰 진행   
-    5-2. 순찰 중 사람 발견 시 사람에게 접근 후 경고 안내 진행   
-    5-3. 지정된 대피소로 안내 진행   
-    5-4. 안내 완료 후 다시 순찰 진행   
-6. 화재 진압 완료 시 임무 종료 및 초기 위치로 복귀
+#### 📆 Development Period : 2025.11.24 ~ 2025.12.05
 
 <br>
 
-## 🧑‍🤝‍🧑 팀 구성 및 역할
+## 🎞️ Operation Scenario
 
-
-| 조원 | 역할 | 담당 업무 |
-|:---------:|:-----------:|:--------:|
-| 김효원, 김갑민 | 팀장, 팀원 | Custom map 생성, 웹캠 - DB - 모니터링 시스템 통합 <br> 로봇B 사람 Detect 및 Approach 기능 구현, 로봇B Patrol 기능 구현
-| 강동혁, 김정욱 | 팀원, 팀원 | 실제 환경 구성 및 SlAM 기반 지도 생성, 로봇 참조 프레임 구성 및 원점 교정 <br> YOLO 기반 Alert Sound 노드 패키지 개발, 동영상 편집|
-| 김다빈, 이효원 | 팀원, 팀원 | YOLO fine tuning, Webcam 화재감지 구현 <br> System Diagram 작성, 로봇A와 통합|
-| 이용우, 황혜인 | 팀원, 팀원 | Flask 서버 구현, UI 디자인 <br> DB로그 기록, UI를 활용한 시스템 통합 |
+1.  **Detection:** WebCam 기반 모니터링 시스템이 화재 발생 감지
+2.  **Alert:** 관제 시스템에서 화재 경보 발령 및 소방서 자동 신고
+3.  **Dispatch:** 화재 진압 로봇(Robot A)과 대피 안내 로봇(Robot B) 동시 출동
+4.  **Robot A (Fire Suppression):**
+    * 관제 시스템으로부터 전달받은 발화 지점으로 자율주행 이동
+    * 화재 재확인 후 초기 진압 절차 수행
+5.  **Robot B (Evacuation Guide):**
+    * 지정된 구역 순찰(Patrol) 시작
+    * 사람 감지(Human Detection) 시 접근하여 경고 음성 송출
+    * 가장 가까운 비상구/대피소로 에스코트
+6.  **Return:** 상황 종료 시 임무 완수 보고 후 초기 위치(Docking Station)로 복귀
 
 <br>
 
-## 🕹️ 사용 기술
+## 👥 Team & Roles
 
-| 항목 | 내용|
-|:------:|:-----------:|
-|운영 체제|Ubuntu 22.04 LTS|
-| ROS | ROS 2 Humble |
-| 인식 모델 | YOLOv8n |
-| 자율 주행 | Slam, Nav2, Rviz2 |
-| 개발 언어 | Python 3.10.12 |
-| 프레임워크 | OpenCV, ROS2 bridge, tf2_ros, ultralytics |
+| Name | Role | Responsibility |
+|:---:|:---:|:---|
+| **Kim Hyo-won** <br> **Kim Gap-min** | Team Leader <br> Team Member | - **System Integration:** WebCam - DB - Monitoring System 통합 구축 <br> - **Robot B Logic:** 사람 인식(Human Detection) 및 접근(Approach), 순찰(Patrol) 알고리즘 구현 <br> - **Mapping:** Custom Map 생성 및 최적화 |
+| **Kang Dong-hyuk** <br> **Kim Jung-wook** | Team Member | - **SLAM & Navigation:** 실제 환경 기반 SLAM 지도 생성, TF(좌표계) 구성 및 원점 교정 <br> - **Feature Dev:** YOLO 기반 Alert Sound 노드 패키지 개발, 시연 영상 편집 |
+| **Kim Da-bin** <br> **Lee Hyo-won** | Team Member | - **AI Vision:** YOLO Fine-tuning, WebCam 화재 감지 모델 최적화 <br> - **System Design:** System Diagram 설계, Robot A 통합 로직 구현 |
+| **Lee Yong-woo** <br> **Hwang Hye-in** | Team Member | - **Web/DB:** Flask 서버 구축 및 UI 디자인, DB 로그 기록 시스템 개발 <br> - **Integration:** Web UI를 활용한 전체 시스템 모니터링 연동 |
+
+<br>
+
+## 💻 Tech Stack
+
+| Category | Technology |
+| :---: | :--- |
+| **OS** | ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04_LTS-E95420?style=flat-square&logo=ubuntu) |
+| **Middleware** | ![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E?style=flat-square&logo=ros) |
+| **AI / Vision** | ![YOLOv8](https://img.shields.io/badge/YOLO-v8n-00FFFF?style=flat-square) ![OpenCV](https://img.shields.io/badge/OpenCV-4.x-5C3EE8?style=flat-square&logo=opencv) |
+| **Autonomous** | ![SLAM](https://img.shields.io/badge/SLAM-Mapping-000000?style=flat-square) ![Nav2](https://img.shields.io/badge/Nav2-Navigation-000000?style=flat-square) ![Rviz2](https://img.shields.io/badge/Rviz2-Visualization-000000?style=flat-square) |
+| **Web / DB** | ![Flask](https://img.shields.io/badge/Flask-Server-000000?style=flat-square&logo=flask) ![SQLite](https://img.shields.io/badge/SQLite3-Database-003B57?style=flat-square&logo=sqlite) |
+| **Language** | ![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat-square&logo=python) |
+| **Tools / Libs** | ![ROS2 Bridge](https://img.shields.io/badge/ROS2-Bridge-22314E?style=flat-square) ![TF2](https://img.shields.io/badge/TF2_ROS-Transform-22314E?style=flat-square) ![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLO-00FFFF?style=flat-square) |
 
 <br>
 
 ## 📝 System Architecture
-![SA](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcL0u7y%2FdJMcaf59ShJ%2FAAAAAAAAAAAAAAAAAAAAAB7XqVq25wCsEbenrq4lqBLetixg3dP-hxZBVqMQR5L9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1767193199%26allow_ip%3D%26allow_referer%3D%26signature%3D5x2tFnpKFxT4f7ZGyGljb2fabyY%253D)
+
+![System Architecture](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcL0u7y%2FdJMcaf59ShJ%2FAAAAAAAAAAAAAAAAAAAAAB7XqVq25wCsEbenrq4lqBLetixg3dP-hxZBVqMQR5L9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1767193199%26allow_ip%3D%26allow_referer%3D%26signature%3D5x2tFnpKFxT4f7ZGyGljb2fabyY%253D)
+
+### Core Logic: Zone Mapping System
+* **Coordinate Conversion:** CCTV 화면상의 화재 위치를 로봇의 실제 주행 좌표(Map Frame)로 변환하는 **Zone Mapping 알고리즘**을 적용하여 정밀한 출동이 가능합니다.
 
 <br>
 
-## 🎥 시연 영상
+## 🎥 Demo Video
 
-<img src="./assets/demonstration.gif" width=80% height=60%>
-<img src="./assets/website_demo1.gif" width=80% height=60%>
-<img src="./assets/website_demo2.gif" width=80% height=60%>
+<img src="./assets/demonstration.gif" width="80%">
+<img src="./assets/website_demo1.gif" width="80%">
+<img src="./assets/website_demo2.gif" width="80%">
 
 <br>
 
-## 🛠️ 평가 및 피드백
+## 🏆 Key Achievements & Learnings
 
-### 완성도 평가
-- 계획했던 핵심 기능 (화재 감지 - 로봇 대응 - 모니터링) 구현
-- 일부 최적화 및 안정화 과정 부족했지만, 전체 시스템의 흐름을 완성도 있게 구성
+### ✅ Project Achievements
+* **Centralized Web Monitoring:** Flask와 SQLite3를 활용해 **4분할 CCTV 모니터링, 로봇 원격 제어, 출동 로그(Log) 관리**가 가능한 통합 관제 대시보드 구축.
+* **End-to-End System Integration:** 화재 감지(Vision) → 좌표 변환(Logic) → 로봇 출동(Nav2) → 관제(Web)로 이어지는 전체 시스템 파이프라인 완성.
+* **Multi-Robot Coordination:** 진압 로봇(A)과 안내 로봇(B)의 역할을 분담하고 유기적으로 협업하는 시나리오 구현.
 
-### 추후 개선점 및 보완할 점
-- 화재 감지 및 사람 감지 알고리즘 정확도 향상 (조명 반사, 오탐 개선)
-- 시스템 전체를 자동화된 테스트 환경에서 반복적으로 검증할 수 있는 구조 추가 
-
-### 우리 팀이 잘한 부분 / 아쉬운 점
-- 체계적인 역할 분담 & 각자 맡은 기능을 끝까지 책임지고 구현
-- 모르는 부분은 적극적으로 질문하고 협력
-- 장비의 반복적인 오류로 인해 개발 일정이 지연
-
-### 느낌 점 및 경험한 성과
-- YOLO 기반 화재 감지, ROS2 DDS 통신을 실제 로봇과 연동하며, 실시간 이벤트 기반 협동 시스템 구축 과정을 경험
-- Nav2 경로 계획·SLAM·TF 구조를 다루며 다중 로봇의 자율주행 파이프라인과 로봇 시스템 아키텍쳐 흐름을 체계적으로 이해
-
+### 💡 Technical Insights
+* **Real-time Event Handling:** YOLO 기반의 객체 인식 결과가 ROS2 DDS 통신을 통해 지연 없이 처리되는 구조를 설계했습니다.
+* **Full-Stack Robotics:** 로봇 하드웨어 제어뿐만 아니라 웹 서버 및 DB 연동을 통해 사용자 친화적인 인터페이스를 개발하는 경험을 쌓았습니다.
+* **Nav2 Pipeline Mastery:** 다중 로봇(Multi-Robot) 환경에서의 Path Planning, SLAM, TF Tree 구조를 다루며 자율주행 시스템 아키텍처에 대한 깊이 있는 이해를 얻었습니다.
